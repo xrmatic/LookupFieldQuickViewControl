@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <control namespace="XRMatic" constructor="LookupFieldQuickViewControl" version="1.0.0"
+    display-name-key="LookupFieldQuickViewControl_DisplayName"
+    description-key="LookupFieldQuickViewControl_Description"
+    control-type="virtual">
+
+    <external-service-usage enabled="false" />
+
+    <!--
+      LookupField: the bound lookup property that this control replaces.
+      Bind this to the lookup column on the form.
+    -->
+    <property
+      name="LookupField"
+      display-name-key="LookupField_DisplayName"
+      description-key="LookupField_Description"
+      of-type="Lookup.Simple"
+      usage="bound"
+      required="true" />
+
+    <!--
+      QuickViewFormId: GUID of the Dynamics 365 quick view form to open
+      when the user clicks the quick-view icon.
+    -->
+    <property
+      name="QuickViewFormId"
+      display-name-key="QuickViewFormId_DisplayName"
+      description-key="QuickViewFormId_Description"
+      of-type="SingleLine.Text"
+      usage="input"
+      required="false" />
+
+    <resources>
+      <code path="index.js" order="1" />
+      <!-- React and Fluent UI v8 are provided by the platform at runtime -->
+      <platform-library name="React" version="16.8.6" />
+      <platform-library name="Fluent" version="8.29.0" />
+    </resources>
+
+    <feature-usage>
+      <uses-feature name="WebAPI" required="false" />
+    </feature-usage>
+
+  </control>
+</manifest>
